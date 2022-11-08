@@ -2,9 +2,12 @@ arr = [95,86,74,64,59,11]
 
 def BubbleSort(arr: list):
     for i in range(len(arr)-1):
+        isSorted = True
         for j in range(len(arr)-1-i):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+                isSorted = False
+        if isSorted: return arr
     return arr
 
 print(BubbleSort(arr))
@@ -27,6 +30,10 @@ print(BubbleSort(arr))
 #                         (n-1) x n
 # 1 + 2 + 3 + ... + n =   ----------  =>  n^2  => O(n^2)
 #                             2
+
+# Time complexity = O(n^2)
+# Space Complexity (Auxilary Size) = O(1)
+# Space Complexity (Auxilary Size + Input Size) = O(n)
 
 # [86,74,64,59,11,95]
 # [74,64,59,11,86,95]
