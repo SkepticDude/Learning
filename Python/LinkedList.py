@@ -9,7 +9,6 @@ class LinkedList:
         self.length = 0
         self.head = None
         self.tail = None
-
     def append(self, value):
         newNode = Node(value)
         self.length += 1
@@ -24,7 +23,6 @@ class LinkedList:
         self.tail.nextNode = newNode        
         self.tail = newNode
         
-
     def remove(self, value):
         self.length -= 1
         if self.head.value == value:
