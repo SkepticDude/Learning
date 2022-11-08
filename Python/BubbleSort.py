@@ -12,6 +12,12 @@ def BubbleSort(arr: list):
 
 print(BubbleSort(arr))
 
+# [86,74,64,59,11,95]
+# [74,64,59,11,86,95]
+# [64,59,11,74,86,95]
+# [59,11,64,74,86,95]
+# [11,59,64,74,86,95]
+
 # possible swap during passes
 # 1st pass => 5 possible swap   (n-1)
 # 2nd pass => 4 possible swap   (n-2)
@@ -25,18 +31,19 @@ print(BubbleSort(arr))
 # first term = 1 , last term = 5
 # (1+5) => n
 
-# 2 (1 + 2 + 3 + ... + n) =  (n-1) x n 
+#       2 x (1 + 2 + 3 + ... + n) =  (n-1) x n 
 
-#                         (n-1) x n
-# 1 + 2 + 3 + ... + n =   ----------  =>  n^2  => O(n^2)
-#                             2
+#                               (n-1) x n
+#       1 + 2 + 3 + ... + n =   ----------  =>  (n^2)  => O(n^2)
+#                                   2
 
-# Time complexity = O(n^2)
+# Time complexity = O(n^2), θ(n^2), Ω(n)
+# Wrost Case =>     Big O
+# Average Case =>   Theta θ
+# Best Case =>      Omega Ω
+
 # Space Complexity (Auxilary Size) = O(1)
 # Space Complexity (Auxilary Size + Input Size) = O(n)
 
-# [86,74,64,59,11,95]
-# [74,64,59,11,86,95]
-# [64,59,11,74,86,95]
-# [59,11,64,74,86,95]
-# [11,59,64,74,86,95]
+# Stable Algorithm (Order of same elements is maintained)
+# Can be made Adaptive by Adding isSorted boolean as shown above
