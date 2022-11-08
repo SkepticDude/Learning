@@ -13,7 +13,6 @@ for i in range(3):
 # print(numbers[1*3:2*3])
 # print(numbers[2*3:3*3])
 
-
 print("\nAccessing columns")
 
 for i in range(3):
