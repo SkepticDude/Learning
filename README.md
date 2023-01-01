@@ -1,2 +1,1 @@
-# Learning
-Repository for me to Learn and you to Explore
+# Repository for me to Learn and you to Explore.
