@@ -1,1 +1,2 @@
-# Repository for me to Learn and you to Explore.
+# My Learning
+Playground for me to Experiment and you to Explore
