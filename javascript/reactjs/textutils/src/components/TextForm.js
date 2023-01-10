@@ -18,7 +18,7 @@ export default function TextForm(props) {
         });
         setText(result.trimEnd());
     }
-
+    const Clear=()=>setText('');
 
     const [text, setText] = useState('');
     return (
@@ -31,8 +31,9 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>to UpperCase</button>
                 <button className="btn btn-primary mx-1" onClick={handleLowClick}>to LowerCase</button>
                 <button className="btn btn-primary mx-1" onClick={handleTitleCaseClick}>to TitleCase</button>
-
+                <button className="btn btn-danger mx-1" onClick={Clear}>Clear</button>
             </div>
+            
             <div className="container my-4">
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
