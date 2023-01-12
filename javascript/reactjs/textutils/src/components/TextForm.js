@@ -1,15 +1,10 @@
 import React, {useState} from 'react'
 
 export default function TextForm(props) {
-    const handleOnChange = (event) => {
-        setText(event.target.value);
-    }
-    const handleUpClick=()=>{
-        setText(text.toUpperCase());
-    }
-    const handleLowClick=()=>{
-        setText(text.toLowerCase());
-    }
+    const handleOnChange=(event)=>setText(event.target.value);
+    const handleUpClick=()=>setText(text.toUpperCase());
+    const handleLowClick=()=>setText(text.toLowerCase());
+
     const handleTitleCaseClick=()=>{
         let mywords = text.split(' ');
         let result = "";
@@ -18,25 +13,38 @@ export default function TextForm(props) {
         });
         setText(result.trimEnd());
     }
-    const Clear=()=>setText('');
-
+    const handleClear=()=>setText('');
+    const handleCopy=()=>navigator.clipboard.writeText(text);
+    const handleCut=()=>{navigator.clipboard.writeText(text); setText('');}
+    const handleExtraSpaces=()=>{let result = text.split(/[  ]+/); setText(result.join(' '));}
+    
     const [text, setText] = useState('');
     return (
         <>
             <div className='container'>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className={`form-control bg-${props.theme} text-${props.theme==='black'?'white':'black'}`} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick}>to UpperCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLowClick}>to LowerCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleTitleCaseClick}>to TitleCase</button>
-                <button className="btn btn-danger mx-1" onClick={Clear}>Clear</button>
+                <span className='container p-0'>
+                    <button className="btn btn-dark m-1" onClick={handleClear}>Clear</button>
+                    <button className="btn btn-dark m-1" onClick={handleCopy}>Copy</button>    
+                    <button className="btn btn-dark m-1" onClick={handleCut}>Cut</button> 
+                </span>
+                <span className="container p-2 CaseConversion">
+                    {/* <h3 className='m-2 mt-3'>Case Converter</h3> */}
+                    <button className="btn btn-primary m-1" onClick={handleUpClick}>to UPPERCASE</button>
+                    <button className="btn btn-primary m-2" onClick={handleLowClick}>to lowercase</button>
+                    <button className="btn btn-primary m-1" onClick={handleTitleCaseClick}>to Titlecase</button>
+                </span>
+                <span className='container p-0'>
+                    <button className="btn btn-success m-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>    
+                </span>
             </div>
             
             <div className="container my-4">
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                <p>{text==='' ? 0:text.split(" ").length} words and {text.length} characters</p>
             </div>
             <div className="container my-3">
                 <h2>Preview</h2>
