@@ -6,19 +6,31 @@ import React, {useState} from 'react';
 
 function App() {
 
-  const [theme, setTheme] = useState('white');
+  let darkTheme = {
+    mode : 'dark',
+    backgroundColor : '#07101B',
+    fontColor: 'white'
+  }
+  let lightTheme = {
+    mode : 'light',
+    backgroundColor : 'white',
+    fontColor : 'black'
+  }
+  
+  const [theme, setTheme] = useState(lightTheme);
   const toggleTheme=()=>{
-    if (theme==='white')
+    if (theme.mode==='light')
     {
-      setTheme('black');
-      document.body.style.backgroundColor = '#01061c';
-      document.body.style.color = 'white';
+      setTheme(darkTheme);
+      document.body.style.backgroundColor = darkTheme.backgroundColor;
+      document.body.style.color = darkTheme.fontColor;
+      
     }
     else
     {
-      setTheme('white');
-      document.body.style.backgroundColor = '#d7dfff';
-      document.body.style.color = 'black';
+      setTheme(lightTheme);
+      document.body.style.backgroundColor = lightTheme.backgroundColor;
+      document.body.style.color = lightTheme.fontColor;
     }
   }
 

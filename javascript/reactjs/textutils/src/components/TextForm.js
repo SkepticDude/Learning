@@ -24,7 +24,7 @@ export default function TextForm(props) {
             <div className='container'>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className={`form-control bg-${props.theme} text-${props.theme==='black'?'white':'black'}`} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className={`form-control text-${props.theme.mode==='dark'?'light':'dark'}`} value={text} style={props.theme} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <span className='container p-0'>
                     <button className="btn btn-dark m-1" onClick={handleClear}>Clear</button>
